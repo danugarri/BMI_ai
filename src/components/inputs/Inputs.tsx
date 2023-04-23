@@ -21,7 +21,17 @@ export const Inputs: React.FC<InputsProps> = ({
 
     const submitInputs = (e: FormEvent) => {
         e.preventDefault();
-        !validationError ? setInputs({ height, weight }) : null;
+        !validationError ? setInputs({ height: transformToCm(height), weight }) : null;
+    };
+
+    const transformToCm = (height: number) => {
+        // we receibe a float, so if we receive 1.82 it is smaller than 3
+        const meter = height < 3 ? height : null;
+        if (meter) {
+            return meter * 100;
+        } else {
+            return height;
+        }
     };
 
     return (
@@ -33,7 +43,7 @@ export const Inputs: React.FC<InputsProps> = ({
                     name="height"
                     onChange={(e) => setHeight(parseFloat(e.target.value))}
                     required
-                    step="0.1"
+                    step="0.01"
                     min={'1'}
                 />
                 <InputValidation
@@ -46,7 +56,7 @@ export const Inputs: React.FC<InputsProps> = ({
                 <input
                     type="number"
                     min={'1'}
-                    step="0.1"
+                    step="0.01"
                     name="weight"
                     onChange={(e) => setWeight(parseFloat(e.target.value))}
                     required
