@@ -20,8 +20,8 @@ export const Ai: React.FC<{ bmi: number; updateResult: (value: INeuralNetworkDat
 
     // fit
     const fit1: Person = { input: [20 / 50], output: { fit: 1 } };
-    const fit2: Person = { input: [22 / 50], output: { fit: 1 } };
-    const fit3: Person = { input: [18 / 50], output: { fit: 1 } };
+    const fit2: Person = { input: [24.9 / 50], output: { fit: 1 } };
+    const fit3: Person = { input: [18.6 / 50], output: { fit: 1 } };
 
     // fat
     const fat1: Person = { input: [40 / 50], output: { fat: 1 } };
@@ -29,7 +29,7 @@ export const Ai: React.FC<{ bmi: number; updateResult: (value: INeuralNetworkDat
     const fat3: Person = { input: [26 / 50], output: { fat: 1 } };
 
     // skinny
-    const skinny1: Person = { input: [15 / 50], output: { skinny: 1 } };
+    const skinny1: Person = { input: [18 / 50], output: { skinny: 1 } };
     const skinny2: Person = { input: [17 / 50], output: { skinny: 1 } };
     const skinny3: Person = { input: [16 / 50], output: { skinny: 1 } };
 
