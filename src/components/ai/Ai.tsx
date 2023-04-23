@@ -53,7 +53,7 @@ export const Ai: React.FC<{ bmi: number; updateResult: (value: INeuralNetworkDat
     }, [result]);
 
     return (
-        <div>
+        <div className="ai-container">
             <h1>Bmi-Ai</h1>
             <img alt="ia" src={iaImage} className="ai" />
         </div>

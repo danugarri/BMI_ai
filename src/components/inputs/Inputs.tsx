@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import './Inputs.css';
 
 export type Inputs = {
     height: number;
@@ -14,7 +15,7 @@ export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setI
     };
 
     return (
-        <form onSubmit={submitInputs}>
+        <form onSubmit={submitInputs} className="form-container">
             <label htmlFor="height">Altura</label>
             <input
                 type="number"

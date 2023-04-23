@@ -1,0 +1,8 @@
+.form-container {
+    background-color: rgb(95, 200, 231);
+    padding: 1.5rem;
+    width: fit-content;
+    border-radius: 1.5625rem;
+    -webkit-box-shadow: 1px 0px 15px 6px #000000;
+    box-shadow: 1px 0px 15px 6px #000000;
+}
