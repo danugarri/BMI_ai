@@ -21,12 +21,14 @@ export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setI
                 type="number"
                 name="height"
                 onChange={(e) => setHeight(parseInt(e.target.value))}
+                required
             />
             <label htmlFor="weight">Peso</label>
             <input
                 type="number"
                 name="weight"
                 onChange={(e) => setWeight(parseInt(e.target.value))}
+                required
             />
 
             <input type="submit" value="Consultar" className="submit-button" />
