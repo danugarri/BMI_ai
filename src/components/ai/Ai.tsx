@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { NeuralNetwork, likely } from 'brain.js';
 import { INeuralNetworkDatum, INeuralNetworkData } from 'brain.js/dist/neural-network';
-
+import iaImage from '../../assets/ia.png';
+import './Ai.css';
 interface Person {
     input: number[];
     output: {
@@ -53,7 +54,8 @@ export const Ai: React.FC<{ bmi: number; updateResult: (value: INeuralNetworkDat
 
     return (
         <div>
-            <h1>Ai</h1>
+            <h1>Bmi-Ai</h1>
+            <img alt="ia" src={iaImage} className="ai" />
         </div>
     );
 };

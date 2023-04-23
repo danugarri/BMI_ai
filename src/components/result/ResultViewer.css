@@ -1,6 +1,12 @@
 .body-text {
     font-size: 3rem;
 }
+.body-image {
+    height: 60vh;
+}
 .result-container {
     text-align: center;
+    position: absolute;
+    top: 1rem;
+    right: 30%;
 }

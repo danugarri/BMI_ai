@@ -26,7 +26,7 @@ export const ResultViewer: React.FC<{ bmi: number; result: INeuralNetworkData }>
                     <>
                         <p>Índice de masa corporal: {bmi}</p>
                         <p className="body-text">{text}</p>
-                        <img alt="bodies" src={body} />
+                        <img alt="bodies" src={body} className="body-image" />
                     </>
                 </div>
             )}
