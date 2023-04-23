@@ -5,9 +5,11 @@ import './index.css';
 import { Ai } from './components/ai/Ai';
 import { Inputs } from './components/inputs/Inputs';
 import { INeuralNetworkData } from 'brain.js/dist/neural-network';
+import { ResultViewer } from './components/result/ResultViewer';
 
 const App = () => {
     const [inputs, setInputs] = useState<Inputs>();
+    // Body mass index
     const [Bmi, setBmi] = useState<number>();
     const [result, setResult] = useState<INeuralNetworkData>();
     const updateResult = (value: INeuralNetworkData) => setResult(value);
@@ -23,8 +25,7 @@ const App = () => {
         <>
             <Ai bmi={Bmi} updateResult={updateResult} />
             <Inputs setInputs={setInputs} />
-            {Bmi}
-            {result}
+            <ResultViewer bmi={Bmi} result={result} />
         </>
     );
 };
