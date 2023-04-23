@@ -31,8 +31,10 @@ export const Inputs: React.FC<InputsProps> = ({
                 <input
                     type="number"
                     name="height"
-                    onChange={(e) => setHeight(parseInt(e.target.value))}
+                    onChange={(e) => setHeight(parseFloat(e.target.value))}
                     required
+                    step="0.1"
+                    min={'1'}
                 />
                 <InputValidation
                     inputs={{ height, weight }}
@@ -43,8 +45,10 @@ export const Inputs: React.FC<InputsProps> = ({
             <section className="inputs-container">
                 <input
                     type="number"
+                    min={'1'}
+                    step="0.1"
                     name="weight"
-                    onChange={(e) => setWeight(parseInt(e.target.value))}
+                    onChange={(e) => setWeight(parseFloat(e.target.value))}
                     required
                 />
                 <InputValidation
@@ -55,6 +59,7 @@ export const Inputs: React.FC<InputsProps> = ({
 
             <input
                 type="submit"
+                step="0.1"
                 value="Consultar"
                 className="submit-button"
                 disabled={validationError}
