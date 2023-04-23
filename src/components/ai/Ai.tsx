@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NeuralNetwork, likely } from 'brain.js';
 import { INeuralNetworkDatum, INeuralNetworkData } from 'brain.js/dist/neural-network';
 
@@ -9,9 +9,9 @@ interface Person {
     };
 }
 
-export const Ai: React.FC<{ bmi: number; setResult: (value: INeuralNetworkData) => void }> = ({
+export const Ai: React.FC<{ bmi: number; updateResult: (value: INeuralNetworkData) => void }> = ({
     bmi,
-    setResult,
+    updateResult,
 }) => {
     const net = new NeuralNetwork();
     /* We have to use percentage to work between 0 and 1*/
@@ -45,15 +45,11 @@ export const Ai: React.FC<{ bmi: number; setResult: (value: INeuralNetworkData) 
     ];
     // Train
     net.train(data);
-    /* example
-    const result = likely([22 / 50], net);
-    console.log(result);
-    */
+    //Result
     const result = likely([bmi / 50], net);
-    setResult(result);
-    // Display probability
-    // const test = net.run([10 / 50]);
-    // console.log(test);
+    useEffect(() => {
+        updateResult(result);
+    }, [result]);
 
     return (
         <div>

@@ -10,6 +10,8 @@ const App = () => {
     const [inputs, setInputs] = useState<Inputs>();
     const [Bmi, setBmi] = useState<number>();
     const [result, setResult] = useState<INeuralNetworkData>();
+    const updateResult = (value: INeuralNetworkData) => setResult(value);
+
     useEffect(() => {
         inputs ? setBmi(calculateBMI(inputs)) : null;
     }, [inputs]);
@@ -19,7 +21,7 @@ const App = () => {
 
     return (
         <>
-            <Ai bmi={Bmi} setResult={setResult} />
+            <Ai bmi={Bmi} updateResult={updateResult} />
             <Inputs setInputs={setInputs} />
             {Bmi}
             {result}
