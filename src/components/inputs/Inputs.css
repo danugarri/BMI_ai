@@ -7,3 +7,16 @@
     -webkit-box-shadow: 1px 0px 15px 6px #000000;
     box-shadow: 1px 0px 15px 6px #000000;
 }
+.submit-button {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: rgb(184, 181, 181);
+}

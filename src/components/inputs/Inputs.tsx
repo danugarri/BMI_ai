@@ -29,7 +29,7 @@ export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setI
                 onChange={(e) => setWeight(parseInt(e.target.value))}
             />
 
-            <input type="submit" value="Consultar" />
+            <input type="submit" value="Consultar" className="submit-button" />
         </form>
     );
 };
