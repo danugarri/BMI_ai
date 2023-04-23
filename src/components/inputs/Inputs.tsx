@@ -6,13 +6,22 @@ export type Inputs = {
     height: number;
     weight: number;
 };
-export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setInputs }) => {
+type InputsProps = {
+    setInputs: (values: Inputs) => void;
+    setValidationError: (value: boolean) => void;
+    validationError: boolean;
+};
+export const Inputs: React.FC<InputsProps> = ({
+    setInputs,
+    setValidationError,
+    validationError,
+}) => {
     const [weight, setWeight] = useState<number>();
     const [height, setHeight] = useState<number>();
 
     const submitInputs = (e: FormEvent) => {
         e.preventDefault();
-        setInputs({ height, weight });
+        !validationError ? setInputs({ height, weight }) : null;
     };
 
     return (
@@ -25,7 +34,10 @@ export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setI
                     onChange={(e) => setHeight(parseInt(e.target.value))}
                     required
                 />
-                <InputValidation input={height} />
+                <InputValidation
+                    inputs={{ height, weight }}
+                    setValidationError={setValidationError}
+                />
             </section>
             <label htmlFor="weight">Peso</label>
             <section className="inputs-container">
@@ -35,10 +47,18 @@ export const Inputs: React.FC<{ setInputs: (values: Inputs) => void }> = ({ setI
                     onChange={(e) => setWeight(parseInt(e.target.value))}
                     required
                 />
-                <InputValidation input={weight} />
+                <InputValidation
+                    inputs={{ height, weight }}
+                    setValidationError={setValidationError}
+                />
             </section>
 
-            <input type="submit" value="Consultar" className="submit-button" />
+            <input
+                type="submit"
+                value="Consultar"
+                className="submit-button"
+                disabled={validationError}
+            />
         </form>
     );
 };

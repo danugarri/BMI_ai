@@ -9,6 +9,7 @@ import { ResultViewer } from './components/result/ResultViewer';
 
 const App = () => {
     const [inputs, setInputs] = useState<Inputs>();
+    const [validationError, setValidationError] = useState(false);
     // Body mass index
     const [Bmi, setBmi] = useState<number>();
     const [result, setResult] = useState<INeuralNetworkData>();
@@ -24,7 +25,11 @@ const App = () => {
     return (
         <>
             <Ai bmi={Bmi} updateResult={updateResult} />
-            <Inputs setInputs={setInputs} />
+            <Inputs
+                setInputs={setInputs}
+                setValidationError={setValidationError}
+                validationError={validationError}
+            />
             <ResultViewer bmi={Bmi} result={result} />
         </>
     );
