@@ -11,20 +11,22 @@ interface Person {
 
 export const Ai = () => {
     const net = new NeuralNetwork();
+    /* We have to use percentage to work between 0 and 1*/
+    // The fattest could be 50, so we have to divide between 50
     // fit
-    const fit1: Person = { input: [20], output: { fit: 1 } };
-    const fit2: Person = { input: [22], output: { fit: 1 } };
-    const fit3: Person = { input: [18], output: { fit: 1 } };
+    const fit1: Person = { input: [20 / 50], output: { fit: 1 } };
+    const fit2: Person = { input: [22 / 50], output: { fit: 1 } };
+    const fit3: Person = { input: [18 / 50], output: { fit: 1 } };
 
     // fat
-    const fat1: Person = { input: [40], output: { fat: 1 } };
-    const fat2: Person = { input: [30], output: { fat: 1 } };
-    const fat3: Person = { input: [26], output: { fat: 1 } };
+    const fat1: Person = { input: [40 / 50], output: { fat: 1 } };
+    const fat2: Person = { input: [30 / 50], output: { fat: 1 } };
+    const fat3: Person = { input: [26 / 50], output: { fat: 1 } };
 
     // skinny
-    const skinny1: Person = { input: [15], output: { skinny: 1 } };
-    const skinny2: Person = { input: [17], output: { skinny: 1 } };
-    const skinny3: Person = { input: [16], output: { skinny: 1 } };
+    const skinny1: Person = { input: [15 / 50], output: { skinny: 1 } };
+    const skinny2: Person = { input: [17 / 50], output: { skinny: 1 } };
+    const skinny3: Person = { input: [16 / 50], output: { skinny: 1 } };
 
     const data: Array<INeuralNetworkDatum<number[], { [key: string]: number }>> = [
         fit1,
@@ -37,11 +39,14 @@ export const Ai = () => {
         skinny2,
         skinny3,
     ];
-
+    // Train
     net.train(data);
-    let result = likely([30], net);
-    result = likely([40], net);
+    const result = likely([22 / 50], net);
     console.log(result);
+    // Display probability
+    const test = net.run([10 / 50]);
+    console.log(test);
+
     return (
         <div>
             <h1>Ai</h1>
