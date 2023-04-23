@@ -1,11 +1,3 @@
-import fatties from './fatties.png';
-import fit from './fit.png';
-import skinnies from './skinnies.png';
-
-const bodies = {
-    fatties,
-    fit,
-    skinnies,
-};
-
-export default bodies;
+export { default as fatties } from './fatties.png';
+export { default as fit } from './fit.png';
+export { default as skinnies } from './skinnies.png';

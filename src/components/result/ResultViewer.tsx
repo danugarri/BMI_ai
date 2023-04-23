@@ -1,6 +1,6 @@
 import { INeuralNetworkData } from 'brain.js/dist/neural-network';
 import React from 'react';
-import bodies from '../../assets/';
+import { fatties, fit, skinnies } from '../../assets/';
 
 export const ResultViewer: React.FC<{ bmi: number; result: INeuralNetworkData }> = ({
     bmi,
@@ -8,10 +8,10 @@ export const ResultViewer: React.FC<{ bmi: number; result: INeuralNetworkData }>
 }) => {
     const body =
         !!result && result.toString() === 'fit'
-            ? bodies.fit
+            ? fit
             : !!result && result.toString() === 'fat'
-            ? bodies.fatties
-            : bodies.skinnies;
+            ? fatties
+            : skinnies;
     return (
         <>
             {result && (
